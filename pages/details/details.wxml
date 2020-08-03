@@ -1,0 +1,84 @@
+<!--pages/details/details.wxml-->
+<swiper style="width:100%;height:530rpx;" indicator-dots indicator-color='#ccc' indicator-active-color='#FE785D'>
+  <swiper-item>
+    <image src="{{image}}"></image>
+  </swiper-item>
+</swiper>
+<view class="content">
+  <view class="content_price">
+    <view class="tit_left">
+      <view>￥
+        <text style="font-size:36rpx;">{{lingshoujia}}</text>
+        <text style="color:#999;">/批发价</text>
+        <text>{{pifajia}}</text>
+      </view>
+    </view>
+    <image src="/images/fenxiang @2x.png" style="width:44rpx;height:44rpx;"></image>
+  </view>
+  <view class="ellips content_tit">{{title}}</view>
+  <view class="content_rich">适用车型
+    <text style="color:#FE785D;">{{adaptation}}</text>
+  </view>
+  <view class="size_box {{isOpen?'open':'close'}}">
+    <block wx:for='{{spec}}' wx:key='index'>
+      <view class="content_size {{index%2 == 0?'odd':'even'}}">
+        <text>{{item.name}}</text>
+        <text>{{item.val}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="isopen" bindtap="isOpenBox" hidden="{{spec.length < 7}}">{{isOpen?'收起':'展开'}}</view>
+  <view class="tab">
+    <block wx:for='{{tabArray}}' wx:key='index'>
+      <view class="tab_li" bindtap="tabSize" data-index='{{index}}'>
+        <text class="{{tabIndex == index?'active':''}}">{{item}}</text>
+        <view hidden="{{tabIndex != index}}"></view>
+      </view>
+    </block>
+  </view>
+</view>
+<view>
+  <view class="foottab" hidden="{{tabIndex != 0}}">
+    <rich-text nodes="{{nodes}}"></rich-text>
+  </view>
+  <view class="foottab" hidden="{{tabIndex != 1}}">
+    <block wx:for='{{tongyongoe}}' wx:key='index'>
+      <block wx:for='{{item}}' wx:for-item='listItem' wx:for-index='listIndex'>
+        <view class="content_size {{listIndex%2 == 0?'odd':'even'}}">
+          <text>{{listItem.key}}</text>
+          <text>{{listItem.val}}</text>
+        </view>
+      </block>
+      <image src="/images/line2@2x.png" style="width:100%;height:10rpx;margin:30rpx 0;"></image>
+    </block>
+  </view>
+  <view class="foottab" hidden="{{tabIndex != 2}}">
+    <block wx:for='{{shiyongchexing}}' wx:key='index'>
+      <block wx:for='{{item}}' wx:for-item='listItem' wx:for-index='listIndex'>
+        <view class="content_size {{listIndex%2 == 0?'odd':'even'}}">
+          <text>{{listItem.key}}</text>
+          <text>{{listItem.val}}</text>
+        </view>
+      </block>
+      <image src="/images/line2@2x.png" style="width:100%;height:10rpx;margin:30rpx 0;"></image>
+    </block>
+  </view>
+</view>
+<view class="fixed">
+  <view class="fixed_left">
+    <view>
+      <image src="/images/coll@2x.png" bindtap="collect" hidden="{{isCollect}}"></image>
+      <image src="/images/hcolle@2x.png" bindtap="cancelCollect" hidden="{{!isCollect}}"></image>
+      <text>{{isCollect?"取消收藏":"收藏"}}</text>
+    </view>
+    <view bindtap="toCar">
+      <image src="/images/sousuo@2x(1).png"></image>
+      <text>购物车</text>
+      <text class="carNum">{{cartnum}}</text>
+    </view>
+  </view>
+  <view class="fixed_right">
+    <view>加入购物车</view>
+    <view bindtap="toOrderDetails">立即购买</view>
+  </view>
+</view>

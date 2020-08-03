@@ -1,0 +1,20 @@
+<!--pages/bind/bind.wxml-->
+<view class="logo">
+  <image src="/images/logo@2x.png"></image>
+  <text>云查配YunChaPei</text>
+</view>
+<view class="banner">
+  <image src="/images/31@2x.png"></image>
+</view>
+<view class="form">
+  <view class="form_tit">账号绑定</view>
+  <view class="form_li">
+    <image src="/images/pe@2x.png"></image>
+    <input placeholder="请输入用户名/手机号/邮箱" placeholder-class="place" bindinput="username"></input>
+  </view>
+  <view class="form_li">
+    <image src="/images/11@2x.png"></image>
+    <input placeholder="请输入密码" placeholder-class="place" password bindinput="password"></input>
+  </view>
+</view>
+<view class="bindbtn" bindtap="bindNow">立即绑定</view>

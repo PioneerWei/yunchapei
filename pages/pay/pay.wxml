@@ -1,0 +1,43 @@
+<!--pages/pay/pay.wxml-->
+<view class="price">
+  <view>￥
+    <text style="font-size:48rpx;">{{account}}</text>
+  </view>
+  <text class="price_rich">待支付金额</text>
+</view>
+<view class="paytype">
+  <view class="paytype_li">
+    <view class="paytype_left">
+      <image src="/images/wx1918@2x.png"></image>
+      <text>微信支付</text>
+    </view>
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox">
+        <checkbox value="0" checked="{{isWxChecked}}" />
+      </label>
+    </checkbox-group>
+  </view>
+  <view class="paytype_li">
+    <view class="paytype_left">
+      <image src="/images/810@2x.png"></image>
+      <text>现金支付</text>
+    </view>
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox">
+        <checkbox value="1" checked="{{isXjChecked}}" />
+      </label>
+    </checkbox-group>
+  </view>
+  <view class="paytype_li" hidden="{{isXyShow}}">
+    <view class="paytype_left">
+      <image src="/images/card@2x.png"></image>
+      <text>信用支付</text>
+    </view>
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox">
+        <checkbox value="2" checked="{{isXyChecked}}" />
+      </label>
+    </checkbox-group>
+  </view>
+</view>
+<view class="nofixedbtn" bindtap="pay">{{typeText}}支付￥{{account}}</view>

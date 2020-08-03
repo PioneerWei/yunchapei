@@ -1,0 +1,138 @@
+/* pages/user/user.wxss */
+
+.data{
+  display: flex;
+  margin: 24rpx 0;
+  padding: 30rpx 0;
+  background: #fff;
+}
+.data_li{
+  width: 148rpx;
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.data_li view{
+  font-size: 42想rpx;
+  color: #2B2B35;
+  font-weight: bold;
+}
+.data_li text{
+  font-size: 24rpx;
+  color: #666;
+}
+.user{
+  position: relative;
+  width: 100%;
+  height: 210rpx;
+}
+.user_user{
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  padding: 0 30rpx 20rpx;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user_left{
+  display: flex;
+}
+.user_name{
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.user_name view{
+  font-size: 34rpx;
+  color: #fff;
+  font-weight: bold;
+}
+.user_name button{
+  font-size: 34rpx;
+  color: #fff;
+  font-weight: bold;
+}
+.button-hover{
+  background: none;
+}
+.user_name text{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: #FFD9D3;
+}
+.list{
+  background: #fff;
+
+}
+.list_li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28rpx 30rpx;
+  border-bottom: 2rpx solid #f3f3f5;
+}
+.list_li view{
+  display: flex;
+  align-items: center;
+}
+.list_li view image{
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 24rpx;
+}
+.list_li view text{
+  font-size: 30rpx;
+  color: #333;
+}
+.out{
+  font-size: 30rpx;
+  color: #FE785D;
+  text-align: center;
+  padding: 28rpx 0;
+  margin-bottom: 50rpx;
+  background: #fff;
+  font-weight: bold;
+}
+.bindModal{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,0.6);
+}
+.bindModal_con{
+  margin: 378rpx auto 0;
+  width: 580rpx;
+  background: #fff;
+  font-size: 32rpx;
+  color: #2C2C30;
+  border-radius:20rpx;
+  text-align: center;
+}
+.bindModal_con_btn{
+  display: flex;
+  justify-content: space-between;
+  border-top: 2rpx solid #f3f3f5;
+}
+.bindModal_con_tit{
+  line-height: 240rpx;
+}
+.bindModal_con_btn view{
+  flex: 2;
+  line-height: 90rpx;
+}
+.bindModal_con_btn view:first-child{
+  color: #FE785D;
+}
+.bindModal_con_btn view:last-child{
+  color: #fff;
+  background: #FE785D;
+  border-radius: 0 0 20rpx 0;
+}

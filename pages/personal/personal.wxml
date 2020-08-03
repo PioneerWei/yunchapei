@@ -1,0 +1,65 @@
+<!--pages/personal/personal.wxml-->
+<view class="personal">
+  <view class="personal_li" bindtap="changeName">
+    <text class="personal_li_left">昵称</text>
+    <view class="personal_li_right">
+      <text>{{name}}</text>
+      <image src="/images/arrow.png"></image>
+    </view>
+  </view>
+  <view class="personal_li" bindtap="changeTel">
+    <text class="personal_li_left">电话</text>
+    <view class="personal_li_right">
+      <text>{{telephone}}</text>
+      <image src="/images/arrow.png"></image>
+    </view>
+  </view>
+  <view class="personal_li" bindtap="changeMail">
+    <text class="personal_li_left">邮箱</text>
+    <view class="personal_li_right">
+      <text>{{email}}</text>
+      <image src="/images/arrow.png"></image>
+    </view>
+  </view>
+</view>
+<view class="wxbind">
+  <view>
+    <text class="wxbind_text1">微信绑定</text>
+  </view>
+  <view class="body-view">
+    <switch checked bindchange="switch1Change" />
+  </view>
+</view>
+<!-- 昵称弹窗 -->
+<view class="showmodal" hidden="{{isChangeModalName}}">
+  <view class="modal">
+    <view class="modal_tit">修改昵称</view>
+    <input class="modal_inp" bindinput="name"/>
+    <view class="modal_btn">
+      <view class="modal_btn1" bindtap="cancel">取消</view>
+      <view class="modal_btn2" bindtap="saveName">保存</view>
+    </view>
+  </view>
+</view>
+<!-- 电话弹窗 -->
+<view class="showmodal" hidden="{{isChangeModalTel}}">
+  <view class="modal">
+    <view class="modal_tit">修改电话</view>
+    <input class="modal_inp" bindinput="tel"/>
+    <view class="modal_btn">
+      <view class="modal_btn1" bindtap="cancel">取消</view>
+      <view class="modal_btn2" bindtap="saveTel">保存</view>
+    </view>
+  </view>
+</view>
+<!-- 邮箱弹窗 -->
+<view class="showmodal" hidden="{{isChangeModalMail}}">
+  <view class="modal">
+    <view class="modal_tit">修改邮箱</view>
+    <input class="modal_inp" bindinput="email"/>
+    <view class="modal_btn">
+      <view class="modal_btn1" bindtap="cancel">取消</view>
+      <view class="modal_btn2" bindtap="saveEmail">保存</view>
+    </view>
+  </view>
+</view>

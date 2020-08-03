@@ -1,0 +1,149 @@
+/* pages/returndetails/returndetails.wxss */
+.input{
+  padding-top: 20rpx;
+  background: #fff;
+}
+.input_li{
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 2rpx solid #F3F3F5;
+  font-size: 30rpx;
+  color: #666;
+}
+.input_li input{
+  margin-left: 40rpx;
+}
+.place{
+  font-size: 30rpx;
+  color: #ccc;
+}
+.content {
+  padding: 0 30rpx;
+  background: #fff;
+}
+
+
+
+.content_li_con {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 24rpx 0;
+  margin-bottom: 24rpx;
+  border-bottom: 2rpx solid #f3f3f5;
+}
+
+.li_con_img {
+  width: 170rpx;
+  height: 210rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 2rpx solid rgba(240, 240, 240, 1);
+  border-radius: 4rpx;
+}
+
+.li_con_img image {
+  width: 100%;
+  height: 100%;
+}
+
+.li_con_con {
+  width: 500rpx;
+  margin-left: 10rpx;
+}
+
+.con_con_tit {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 36rpx;
+}
+
+.con_con_rich {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.con_con_price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -10rpx;
+}
+.address{
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 20rpx;
+  width: 690rpx;
+  height: 120rpx;
+  background: rgba(243, 243, 245, 1);
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  color: #737373;
+}
+.textarea {
+  box-sizing: border-box;
+  padding: 20rpx;
+  width: 100%;
+  height: 120rpx;
+  background: rgba(243, 243, 245, 1);
+  border-radius: 10rpx;
+}
+
+.con_price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26rpx;
+  color: #999;
+  line-height: 52rpx;
+  font-weight: bold;
+}
+
+.con_price:last-child {
+  color: #333;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #f3f3f5;
+}
+
+.price_shif {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+.return_status{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+  padding: 30rpx;
+  font-size: 26rpx;
+  background: #fff;
+  border-bottom: 2rpx solid #f3f3f5;
+}
+.return_status text:first-child{
+  color: #999;
+}
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 30rpx;
+  padding: 16rpx 40rpx;
+  background: #fff;
+}
+
+.allbtn {
+  padding: 10rpx 26rpx;
+  background: rgba(254, 120, 93, 1);
+  border-radius: 34rpx;
+  font-size: 30rpx;
+  color: #fff;
+}
+.steps{
+  padding: 40rpx 0;
+}

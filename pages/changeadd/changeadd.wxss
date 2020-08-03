@@ -1,0 +1,74 @@
+/* pages/changeadd/changeadd.wxss */
+.address{
+  background: #fff;
+}
+.address_li{
+  padding: 36rpx 30rpx;
+  border-bottom: 2rpx solid #F3F3F5;
+}
+input{
+  font-size: 30rpx;
+  color: #333;
+}
+.place{
+  font-size: 30rpx;
+  color: #ccc;
+}
+.picker{
+  font-size: 30rpx;
+  color: #333;
+}
+.default{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  color: #333;
+  background: #fff;
+  padding: 20rpx 30rpx;
+  margin-top: 10rpx;
+}
+.copyadd {
+  background: #fff;
+  padding: 20rpx 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.address_li_details {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.place_copy {
+  font-size: 28rpx;
+  color: #ccc;
+}
+
+.copyadd textarea {
+  box-sizing: border-box;
+  padding: 24rpx;
+  margin-top: 24rpx;
+  width: 100%;
+  height: 140rpx;
+  border-radius: 10rpx;
+  background: #f3f3f5;
+  font-size: 28rpx;
+  color: #666666;
+}
+.copy_tit{
+  font-size: 30rpx;
+  color: #333333;
+}
+.copy_btn {
+  margin-top: 20rpx;
+  display: inline-block;
+  width: 118rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  font-size: 26rpx;
+  color: #999999;
+  text-align: center;
+  background: #ffffff;
+  border: 2rpx solid #E0E0E0;
+  border-radius: 30rpx;
+}

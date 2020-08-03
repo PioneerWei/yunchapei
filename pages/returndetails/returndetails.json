@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-steps": "../../dist/steps/index",
+    "i-step": "../../dist/step/index"
+  },
+  "navigationBarTitleText": "退货单详情"
+}

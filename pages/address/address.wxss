@@ -1,0 +1,69 @@
+/* pages/address/address.wxss */
+.box{
+  padding-bottom: 140rpx;
+}
+.address_li {
+  padding: 0 30rpx;
+  margin-bottom: 10rpx;
+  background: #fff;
+}
+
+.address_li_name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  font-size: 30rpx;
+}
+.li_name_name{
+  display: flex;
+  align-items: center;
+}
+.li_name_name view:first-child {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.li_name_name view:last-child {
+  margin-left: 10rpx;
+  width: 76rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  background: rgba(26, 211, 180, 1);
+  border-radius: 5rpx;
+  font-size: 26rpx;
+  color: #fff;
+}
+
+.li_name_tel {
+  font-size: 30rpx;
+  color: #333;
+}
+.address_li_details{
+  font-size: 28rpx;
+  color: #666666;
+}
+.address_li_btn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20rpx 0;
+  margin-top: 30rpx;
+  border-top: 2rpx solid #eaeaea;
+}
+
+.address_li_btn text {
+  margin-left: 16rpx;
+  display: inline-block;
+  width: 118rpx;
+  height: 60rpx;
+  line-height: 58rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 2rpx solid rgba(224, 224, 224, 1);
+  border-radius: 30rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #333;
+}
+
+

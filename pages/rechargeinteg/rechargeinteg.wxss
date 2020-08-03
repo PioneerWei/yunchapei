@@ -1,0 +1,38 @@
+/* pages/rechargeinteg/rechargeinteg.wxss */
+.recharge {
+  padding: 36rpx 30rpx;
+  background: #fff;
+}
+
+.recharge view {
+  margin-top: 30rpx;
+  font-size: 26rpx;
+  color: #ccc;
+}
+
+.recharge_price {
+  padding: 46rpx 0;
+  margin: 20rpx auto;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  width: 710rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 10rpx;
+}
+.recharge_price view{
+  flex: 2;
+  text-align: center;
+}
+.recharge_price view text{
+  display: block;
+}
+.price_text{
+  font-size: 28rpx;
+  color: #999;
+}
+.price_pri{
+  margin-top: 10rpx;
+  font-size: 42rpx;
+  font-weight: bold;
+}

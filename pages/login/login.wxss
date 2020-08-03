@@ -1,0 +1,36 @@
+/* pages/login/login.wxss */
+
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 210rpx;
+  width: 100%;
+  font-size: 26rpx;
+  color: #666666;
+  font-weight: bold;
+}
+
+.logo image {
+  width: 160rpx;
+  height: 160rpx;
+}
+.title{
+  margin: 50rpx 0 130rpx;
+  font-size: 30rpx;
+  color: #666666;
+  text-align: center;
+}
+.bindbtn {
+  margin: 60rpx auto 0;
+  width: 452rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: rgba(254, 120, 93, 1);
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  color: #fff;
+}

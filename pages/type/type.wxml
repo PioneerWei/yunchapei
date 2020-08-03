@@ -1,0 +1,89 @@
+<!--pages/type/type.wxml-->
+<view class="{{selectShowBrand || selectShowSort || fixed?'indexFixed':''}}">
+  <search bind:myevent='getSearch' bind:mycount='getCount' is-status-oE='{{fixed}}' value='{{val}}'/>
+  <view class="sortingIntf">
+    <view class="sortingIntf_li {{selectAll?'active':''}}" catchtap="all" hidden="{{isHideNav}}">全部</view>
+    <view class="sortingIntf_li">
+      <view class='select' catchtap='brandSort'>
+        <text class="sortingIntf_text {{selectShowBrand?'active':''}}">{{brandText}}</text>
+        <image class='select_img {{selectShowBrand&&"select_img_rotate"}}' src='/images/2@2x.png' background-size="contain"></image>
+      </view>
+    </view>
+    <!-- <view class="sortingIntf_li">
+      <view class='select' catchtap='sort'>
+        <text class="sortingIntf_text {{selectShowSort?'active':''}}">排序</text>
+        <image class='select_img {{selectShowSort&&"select_img_rotate"}}' src='/images/2@2x.png' background-size="contain"></image>
+      </view>
+    </view> -->
+  </view>
+  <view class="screening">
+    <view class="screening_left" bindtap="isLeft">
+      <text>{{leftText}}</text>
+      <image src="/images/15364@2x.png" style="width:30rpx;height:30rpx;margin-left:20rpx;"></image>
+    </view>
+    <scroll-view class="screening_right" scroll-x='true'>
+      <block wx:for='{{category}}' wx:key='index' wx:if="{{leftId == item.pid}}">
+        <view bindtap="categoryScree" data-index='{{index}}' data-id='{{item.cateid}}' style="{{rightIndex != index?'':'color:#fe785d;border:2rpx solid #fe785d;'}}">{{item.name}}</view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="content">
+    <view class="content_prompt" hidden="{{isSearchPro}}">共找到
+      <text style="color:#FE785D;">{{count}}</text> 件商品</view>
+    <block wx:for='{{list}}' wx:key='index'>
+      <view class="content_li" bindtap="toDetails" data-pid='{{item.pid}}'>
+        <view class="content_img" >
+          <image src="{{item.image}}" mode='scaleToFill'></image>
+        </view>
+        <view class="content_con">
+          <text class="ellips" style="font-size:28rpx;color:#333;">{{item.title}}</text>
+          <text class="content_text" style="font-size:22rpx;color:#999;">{{item.brandshow}}</text>
+          <text class="content_text" style="font-size:24rpx;color:#999;">销量 {{item.yishou}}</text>
+          <view class="content_btn">
+            <view style="color:#FE785D;font-size:24rpx;font-weight:bold;">￥
+              <text style="font-size:32rpx;">{{item.price}}</text>
+            </view>
+            <view>
+              <image src="/images/coll@2x.png" style="margin-right:30rpx;" catchtap="collect" hidden="{{isfavs[index]}}" data-pid='{{item.pid}}' data-index='{{index}}'></image>
+              <image src="/images/hcolle@2x.png" style="margin-right:30rpx;" catchtap="collectCancel" hidden="{{!isfavs[index]}}" data-pid='{{item.pid}}' data-index='{{index}}'></image>
+              <image src="/images/add68@2x.png" catchtap="addCar" data-pid='{{item.pid}}'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class="nomore">暂无更多内容</view>
+  </view>
+</view>
+<!-- 左菜单栏 -->
+<view class="positionleft" hidden="{{isLeft}}">
+  <block wx:for='{{bigcategory}}' wx:key='index'>
+    <view class="positionleft_li" catchtap="leftTab" data-id='{{item.cateid}}' data-index='{{index}}' data-text='{{item.name}}'>
+      <text class="positionleft_li_text" style="{{leftIndex != index?'':'font-weight:bold;'}}">{{item.name}}</text>
+      <image src="/images/15364@2x.png"></image>
+    </view>
+  </block>
+</view>
+<!-- 品牌排序弹层 -->
+<view class="type_modal" hidden="{{!selectShowBrand}}" catchtap="cancel">
+  <view class="brand_con">
+    <view class="brand_titbox" bindtap="all" data-text='不限'>
+      <text class="brand_tit">不限</text>
+    </view>
+    <block wx:for='{{brand}}' wx:key='index'>
+      <view class="brand_li" catchtap="brandSree" data-id='{{item.brand_id}}' data-text='{{item.name}}'>
+        <image src="{{item.logo}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+</view>
+<!-- 排序弹层 -->
+<view class="type_modal" hidden="{{!selectShowSort}}" catchtap="cancel">
+  <view class="sort_con">
+    <view class="brand_titbox">
+      <text class="brand_tit">不限</text>
+    </view>
+    <text class="sort_li" catchtap="sortSree">综合排序</text>
+  </view>
+</view>

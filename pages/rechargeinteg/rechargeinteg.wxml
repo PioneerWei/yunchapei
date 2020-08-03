@@ -1,0 +1,16 @@
+<!--pages/rechargeinteg/rechargeinteg.wxml-->
+<view class="recharge">
+  <input class="recharge_inp" value="{{number}}" bindinput="number"></input>
+  <view>*1积分=1元，最小充值积分数1</view>
+</view>
+<view class="recharge_price">
+  <view style="border-right:2rpx solid #E0E0E0;">
+    <text class="price_text">当前积分</text>
+    <text class="price_pri" style="color:#FE785D;">{{integral}}</text>
+  </view>
+  <view>
+    <text class="price_text">现金金额(元)</text>
+    <text class="price_pri" style="color:#666;">{{xianjin}}</text>
+  </view>
+</view>
+<view class="bigbtn" bindtap="toPay">立即充值</view>

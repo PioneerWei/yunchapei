@@ -1,0 +1,164 @@
+<!--pages/orderdetails/orderdetails.wxml-->
+<view class="details_statue">
+  <block wx:for='{{orderstatus}}' wx:key='index'>
+    <view class="status_status" hidden="{{order_status != item.key}}">
+      <image src="/images/1925@2x.png" hidden="{{order_status == '0'}}"></image>
+      <image src="/images/wait1925@2x.png" hidden="{{order_status != '0'}}"></image>
+      <text>{{item.val}}</text>
+    </view>
+  </block>
+
+  <!-- 根据状态显示隐藏 -->
+  <view wx:if='{{order_status == "0"}}'>
+    <view class="status_price">现金余额：
+      <text style="font-size:28rpx;font-weight:28rpx;">￥{{useraccount[0].val}}</text> 可用额度：
+      <text style="font-size:28rpx;font-weight:28rpx;">￥{{useraccount[1].val}}</text>
+    </view>
+    <view class="status_btn" bindtap="toPay">去支付</view>
+  </view>
+  <!--  -->
+</view>
+<!-- 根据状态显示隐藏 -->
+<view class="address" bindtap="toSelectAddress">
+  <view class="address_con">
+    <view>
+      <view class="address_con_name">
+        <image src="/images/address@2x.png" style="width:30rpx;height:30rpx;"></image>
+        <text>{{name}} {{telephone}}</text>
+      </view>
+      <view class="address_con_addre">地址：{{province}}{{city}}{{country}}{{address}}</view>
+    </view>
+    <!-- 根据状态显示隐藏 -->
+    <image src="/images/arrow.png" style="width:16rpx;height:26rpx;" hidden="{{order_status != '0'}}"></image>
+  </view>
+  <!-- 根据状态显示隐藏 -->
+  <image src="/images/border74@2x.png" style="width:680rpx;height:6rpx;margin:0 auto;"></image>
+</view>
+<view class="logistics" wx:if='{{order_status == "0"}}'>
+  <picker bindchange="wuliuPickerChange" value="{{index}}" range="{{wuliu}}" range-key='name'>
+    <view class="logistics_li">
+      <text style="font-size:30rpx; color:#666;">物流</text>
+      <view>
+        <text style="font-size:30rpx; color:#333;margin-right:20rpx;">{{wuliu[wuliuIndex].name}}</text>
+        <image src="/images/arrow.png" style="width:14rpx;height:24rpx;"></image>
+      </view>
+    </view>
+  </picker>
+
+  <picker bindchange="yunfeiPickerChange" value="{{index}}" range="{{yunfei}}" range-key='name'>
+    <view class="logistics_li">
+      <text style="font-size:30rpx; color:#666;">运费</text>
+      <view>
+        <text style="font-size:30rpx; color:#333;margin-right:20rpx;">{{yunfei[yunfeiIndex].name}}</text>
+        <image src="/images/arrow.png" style="width:14rpx;height:24rpx;"></image>
+      </view>
+    </view>
+  </picker>
+</view>
+<!--  -->
+<view class="content">
+  <block wx:for='{{detail}}' wx:key='index'>
+    <view class="content_li">
+      <!-- 根据状态显示隐藏 -->
+      <view style='padding-top:30rpx;' wx:if='{{order_status == "0"}}'>
+        <view class="content_li_tit">
+          <block wx:for='{{item.input}}' wx:for-item='inputItem' wx:for-index='inputIndex' wx:key='inputIndex'>
+            <checkbox-group bindchange="storeChange" data-parame='{{inputItem.parame}}' data-value='{{inputItem.value}}'>
+              <label class="checkbox">
+                <checkbox value="2" checked="{{isXjChecked}}" />
+                <text>{{inputItem.name}}</text>
+              </label>
+            </checkbox-group>
+          </block>
+        </view>
+      </view>
+      <!--  -->
+      <block wx:for='{{item.prolist}}' wx:for-item='listItem' wx:for-index='listIndex' wx:key='listIndex'>
+        <view class="content_li_con">
+          <!-- 根据状态添加复选框 -->
+          <checkbox-group bindchange="checkboxChange" data-index='{{listIndex}}' data-quantity='{{listItem.quantity}}' hidden='{{!clickReturn}}'>
+            <label class="checkbox">
+              <checkbox value="{{listItem.pid}}" />
+            </label>
+          </checkbox-group>
+          <!--  -->
+          <view class="li_con_img">
+            <image src="{{listItem.image}}"></image>
+          </view>
+          <view class="li_con_con" style="width:{{width}}rpx;">
+            <view class="con_con_tit ellips">{{listItem.products_title}}</view>
+            <view class="con_con_rich">编号:RJO-8054</view>
+            <view class="con_con_price">
+              <view class="con_con_size">
+                <text style="font-size: 24rpx;color: #999;">数量：{{listItem.quantity}} 箱规：{{listItem.meixiangshuliang}}</text>
+                <view style="font-size:20rpx;color: #FE785D;font-weight: bold;margin-top:-4rpx;">￥
+                  <text style="font-size:24rpx;">{{listItem.price}}</text>
+                </view>
+              </view>
+              <!-- 根据状态显示按钮 -->
+              <view class="con_con_btn" hidden='{{!clickReturn}}'>
+                <text bindtap="jian" data-index='{{listIndex}}'>-</text>
+                <text>{{count[listIndex]}}</text>
+                <text bindtap="add" data-index='{{listIndex}}'>+</text>
+              </view>
+              <!--  -->
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+  <textarea class="textarea" placeholder="请在此添加买家留言" placeholder-style="font-size:26rpx;color:#ccc;" bindinput="remark" disabled="{{order_status != '0'}}" value='{{textarea}}'></textarea>
+  <view class="pricelist">
+    <view class="con_price">
+      <text>商品金额</text>
+      <text>{{product_jine}}</text>
+    </view>
+    <view class="con_price">
+      <text>运费</text>
+      <text>{{accyunfei}}</text>
+    </view>
+    <view class="con_price">
+      <text>合计</text>
+      <text>{{heji}}</text>
+    </view>
+
+  </view>
+  <view class="price_shif">
+    <text>实付</text>
+    <text style="color:#F8533D;">{{shifu}}</text>
+  </view>
+</view>
+<view class="yellow">
+  <view class="yellow_li">
+    <text>上次运费(当前订单需要计入上次订单运费)</text>
+    <text>{{shangyiciyunfei}}</text>
+  </view>
+  <view class="yellow_li">
+    <text>当前运费(当前订单运费会在下次订单计算)</text>
+    <text>{{dangqianyunfei}}</text>
+  </view>
+</view>
+
+<view class="orderinform">
+  <view>订单信息</view>
+  <block wx:for='{{orderinfo}}' wx:key='index'>
+    <text>{{item.key}}：{{item.val}}</text>
+  </block>
+</view>
+<!-- 根据状态显示底部 -->
+<view class="footer1" wx:if='{{order_status == "3"}}'>
+  <checkbox-group bindchange="checkboxChange">
+    <label class="checkbox">
+      <checkbox value="" checked="{{isChecked}}" />
+      <text style="font-size:24rpx;color:#999;">全选</text>
+    </label>
+  </checkbox-group>
+  <view class="allbtn" bindtap="toReturn">退货</view>
+</view>
+<view class="footer2" wx:if='{{order_status == "2"}}'>
+  <view class="allbtn" bindtap="confirmReceipt">确认收货</view>
+</view>
+<view class="footer2" wx:if='{{order_status == "4"}}'>
+  <view class="allbtn" bindtap="viewReturn">查看退货进度</view>
+</view>

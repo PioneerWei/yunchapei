@@ -1,0 +1,26 @@
+<!--pages/collect/collect.wxml-->
+<scroll-view class="collect" scroll-y='true'>
+  <block wx:for='{{list}}' wx:key='index'>
+    <view class="collect_li {{isLeft && moveIndex == index?'left':''}}">
+      <view class="li_con" catchtap="toDetails" bindtouchstart="touchStart" bindtouchend="touchEnd" data-index='{{index}}' data-pid='{{item.pid}}'>
+        <view class="li_con_left">
+          <image src="{{item.image}}"></image>
+        </view>
+        <view class="li_con_right">
+          <view class="ellips right_tit">{{item.title}}</view>
+          <view class="right_rich">编号:{{item.model}}</view>
+          <view class="right_size">
+            <view class="size_size">
+              <view>箱规：{{item.meixiangshuliang}}</view>
+              <view style="color:#FE785D;font-size:20rpx;font-weight:bold;">￥
+                <text style="font-size:24rpx;">{{item.price}}</text>
+              </view>
+            </view>
+            <text class="size_btn" catchtap="addCar" data-pid='{{item.pid}}' data-index='{{index}}'>+</text>
+          </view>
+        </view>
+      </view>
+      <view class="li_remove" catchtap="removeGoods" data-pid='{{item.pid}}' data-index='{{index}}'>删除</view>
+    </view>
+  </block>
+</scroll-view>

@@ -1,0 +1,20 @@
+<!--pages/address/address.wxml-->
+<view class="box">
+  <block wx:for='{{book}}' wx:key='index'>
+    <view class="address_li">
+      <view class="address_li_name">
+        <view class="li_name_name">
+          <view>{{item.name}}</view>
+          <view hidden="{{item.is_default == '0'}}">默认</view>
+        </view>
+        <text class="li_name_tel">{{item.telephone}}</text>
+      </view>
+      <text class="address_li_details">{{item.name}} {{item.telephone}} {{item.province}}{{item.city}}{{item.area}}{{item.address}}</text>
+      <view class="address_li_btn">
+        <text bindtap="chnageAdd" data-name='{{item.name}}' data-telephone='{{item.telephone}}' data-province='{{item.province}}' data-city='{{item.city}}' data-area='{{item.area}}' data-address='{{item.address}}' data-id='{{item.bid}}'>编辑</text>
+        <text bindtap="removeAdd" data-id='{{item.bid}}'>删除</text>
+      </view>
+    </view>
+  </block>
+</view>
+<view class="bigbtn" bindtap="addAddress">+新增地址</view>

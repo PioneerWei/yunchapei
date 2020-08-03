@@ -1,0 +1,86 @@
+<!--pages/account/account.wxml-->
+<view class="amount">
+  <text class="amount_tit">现金余额(元)</text>
+  <view class="amount_num">{{xianjin}}</view>
+  <view class="amount_list">
+    <view class="amount_li">
+      <text>{{xinyong}}</text>
+      <text>信用额度(元)</text>
+    </view>
+    <view class="amount_li">
+      <text>{{xinyong_edu}}</text>
+      <text>已用额度(元)</text>
+    </view>
+    <view class="amount_li">
+      <text>{{tuijian}}</text>
+      <text>推荐奖励(元)</text>
+    </view>
+  </view>
+</view>
+<view class="date">
+  <view class="date_li">
+    <picker mode="selector" value="{{index}}" range="{{typelist}}" bindchange="bindTypeChange" bindtap="bindTypeTap" bindcancel="bindTypeCancel">
+      <view class="picker">
+        {{typelist[index]}}
+      </view>
+    </picker>
+    <image class='select_img {{selectType&&"select_img_rotate"}}' src='/images/2@2x.png' background-size="contain"></image>
+  </view>
+  <view class="date_li">
+    <picker mode="date" value="{{startDate}}" start="2010-01-01" end="{{nowDate}}" bindchange="bindStartChange" bindtap="bindStartTap" bindcancel="bindStartCancel">
+      <view class="picker">
+        {{startDate}}
+      </view>
+    </picker>
+    <image class='select_img {{selectStart&&"select_img_rotate"}}' src='/images/2@2x.png' background-size="contain"></image>
+  </view>
+  <view class="date_li">
+    <picker mode="date" value="{{endDate}}" start="2010-01-01" end="{{nowDate}}" bindchange="bindEndChange" bindtap="bindEndTap" bindcancel="bindEndCancel">
+      <view class="picker">
+        {{endDate}}
+      </view>
+    </picker>
+    <image class='select_img {{selectEnd&&"select_img_rotate"}}' src='/images/2@2x.png' background-size="contain"></image>
+  </view>
+</view>
+<!-- 有无数据状态 -->
+<view class="result" hidden="{{list.length == 0}}">
+  <block wx:for='{{list}}' wx:key='index'>
+    <view class="result_li">
+      <view class="result_li_li">
+        <text>日期</text>
+        <view>{{item.riqi}}</view>
+      </view>
+      <view class="result_li_li">
+        <text>类型</text>
+        <view>{{item.leixing}}</view>
+      </view>
+      <view class="result_li_li">
+        <text>描述</text>
+        <view>
+          {{item.miaoshu}}
+        </view>
+      </view>
+      <view class="result_li_li">
+        <text>状态</text>
+        <view>{{item.zhuangtai}}</view>
+      </view>
+      <view class="result_li_li">
+        <text>金额</text>
+        <view>{{item.jine}}</view>
+      </view>
+    </view>
+  </block>
+
+
+</view>
+<view class="noresult" hidden="{{list.length != 0}}">
+  <image src="/images/1917@2x.png"></image>
+  <text>暂无查询记录</text>
+  <text>选择条件查询看看吧~</text>
+</view>
+<!--  -->
+<view class="fixedbtn">
+  <button bindtap="reset">重置</button>
+  <button bindtap="query">查询</button>
+</view>

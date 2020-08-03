@@ -1,0 +1,105 @@
+<!--component/search/search.wxml-->
+<view class="header_head">
+  <image src="/images/VIN@2x.png" bindtap="upImg"></image>
+  <view class="header_select">
+    <view class='select_box'>
+      <view class='select'>
+        <picker bindtap='selectTap' bindchange="selectChange" bindcancel='selectCancel' value="{{index}}" range="{{selectData}}">
+          <view class="picker">
+            {{selectData[index]}}
+          </view>
+        </picker>
+        <image class='select_img {{selectShow&&"select_img_rotate"}}' src='/images/2@2x.png' background-size="contain"></image>
+      </view>
+    </view>
+    <input class="header_input" placeholder="车架号OE或产品" placeholder-class="place_search" confirm-type='search' bindconfirm='search' bindinput="value"  value='{{value}}'/>
+  </view>
+  <button open-type="contact"><image src="/images/1@2x.png" style="width:44rpx;height:44rpx;"></image></button>
+</view>
+<view class="OEtwo" wx:if="{{isStatusOE}}">
+  <view class="screening">
+    <view class="screening_left" bindtap="isLeft">
+      <text>{{leftText}}</text>
+      <image src="/images/15364@2x.png" style="width:30rpx;height:30rpx;margin-left:20rpx;"></image>
+    </view>
+    <scroll-view class="screening_right" scroll-x='true'>
+      <block wx:for='{{cateinfo}}' wx:key='index'>
+        <view bindtap="getOeList" wx:if='{{leftId == item.pid}}' data-code='{{item.code}}' data-index='{{index}}' style="{{rightIndex != index?'':'color:#fe785d;border:2rpx solid #fe785d;'}}">{{item.name}}</view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="size_box">
+    <view class='size__tit'>
+      <text>解析的车架号：</text>
+      <text>{{value}}</text>
+    </view>
+    <view class="{{isOpen?'open':'close'}}">
+      <block wx:for='{{info}}' wx:key='index'>
+        <view class="content_size {{index%2 == 0?'odd':'even'}}">
+          <text>{{item.key}}</text>
+          <text>{{item.val}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view bindtap="closeLeft">
+    <block wx:for='{{oelist}}' wx:key='index'>
+      <view class="installnum">
+        <view class="installnum_num">
+          <view>OE
+            <text style="font-size:26rpx;color:#333;font-weight:bold;margin-left:6rpx;">{{item.oeNo}}</text>
+          </view>
+          <view>安装数量
+            <text style="font-size:26rpx;color:#333;font-weight:bold;margin-left:6rpx;">{{item.installNumber}}</text>
+          </view>
+        </view>
+        <view class="installnum_btn" catchtap="oeDetail" data-search='{{item.oeNo}}'>查看详情</view>
+      </view>
+    </block>
+    <view class="content">
+      <view class="content_prompt">
+        <view hidden="{{successText}}">共找到
+          <text style="color:#FE785D;">{{list.length}}</text> 件商品</view>
+        <view hidden="{{!successText}}">请选择不同分类查看对应的OE号</view>
+      </view>
+      <block wx:for='{{list}}' wx:key='index'>
+        <view class="content_li" bindtap="toDetails" data-pid='{{item.pid}}'>
+          <view class="content_img">
+            <image src="{{item.image}}"></image>
+          </view>
+          <view class="content_con">
+            <text class="ellips" style="font-size:28rpx;color:#333;">{{item.title}}</text>
+            <text class="content_text" style="font-size:22rpx;color:#999;">{{item.brandshow}}</text>
+            <view class="content_btn" hidden="{{!item.type}}">
+              <view style="color:#FE785D;font-size:24rpx;font-weight:bold;">￥
+                <text style="font-size:32rpx;">{{item.price}}</text>
+              </view>
+              <view>
+                <image src="/images/coll@2x.png" style="margin-right:30rpx;" bindtap="collect" hidden="{{isfavs[index]}}" data-pid='{{item.pid}}' data-index='{{index}}'></image>
+                <image src="/images/hcolle@2x.png" style="margin-right:30rpx;" bindtap="collectCancel" hidden="{{!isfavs[index]}}" data-pid='{{item.pid}}' data-index='{{index}}'></image>
+                <image src="/images/add68@2x.png" bindtap="addCar" data-pid='{{item.pid}}'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <!-- <view class="nomore" hidden="{{isshowMore}}">暂无更多内容</view> -->
+    </view>
+  </view>
+</view>
+<view class="search_status" hidden="{{isStatus}}" catchtouchmove='true'>
+  <view>
+    <block wx:for='{{vindata}}' wx:key='index'>
+      <text catchtap="toTwoDetail" data-vin3id='{{item.vin3id}}'>{{item.chinese}}{{item.english}}</text>
+    </block>
+  </view>
+</view>
+<!-- 左菜单栏 -->
+<view class="positionleft" hidden="{{isLeft}}">
+  <block wx:for='{{bigcategory}}' wx:key='index'>
+    <view class="positionleft_li" catchtap="leftTab" data-id='{{item.cateid}}' data-index='{{index}}' data-text='{{item.name}}'>
+      <text class="positionleft_li_text" style="{{leftIndex != index?'':'font-weight:bold;'}}">{{item.name}}</text>
+      <image src="/images/15364@2x.png"></image>
+    </view>
+  </block>
+</view>

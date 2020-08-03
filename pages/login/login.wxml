@@ -1,0 +1,7 @@
+<!--pages/login/login.wxml-->
+<view class="logo">
+  <image src="/images/logo@2x.png"></image>
+  <text>云查配YunChaPei</text>
+</view>
+<view class="title">需要使用您的微信昵称和头像</view>
+<button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" class="bindbtn">立即进入</button>

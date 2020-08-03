@@ -1,0 +1,30 @@
+/* pages/repayment/repayment.wxss */
+
+.repayment{
+  padding: 30rpx;
+  background: #fff;
+}
+.repayment_inp {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  width: 100%;
+  height: 88rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 2rpx solid rgba(224, 224, 224, 1);
+  border-radius: 6rpx;
+}
+.repayment_inp input{
+  box-sizing: border-box;
+  padding-left: 20rpx;
+  width: 100%;
+  height: 100%;
+}
+.repayment_li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #999;
+}

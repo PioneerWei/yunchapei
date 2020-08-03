@@ -1,0 +1,54 @@
+<!--pages/car/car.wxml-->
+<scroll-view class="car" scroll-y='true'>
+  <block wx:for='{{basket}}' wx:key='{{index}}'>
+    <view class="collect_li {{isLeft && moveIndex == index?'left':''}}">
+      <view class="lin_box" bindtouchstart="touchStart" bindtouchend="touchEnd" data-index='{{index}}'>
+        <view class="li_con">
+          <checkbox-group bindchange="checkboxLi" data-index='{{index}}' data-price='{{item.price}}' data-id='{{item.basket_id}}'>
+            <label class="checkbox">
+              <checkbox value="{{item.price}}" checked="{{checkedLi[index]}}"/>
+            </label>
+          </checkbox-group>
+          <view class="li_con_con" bindtap="toDetails" data-pid='{{item.pid}}'>
+            <view class="li_con_left">
+              <image src="{{item.image}}"></image>
+            </view>
+            <view class="li_con_right">
+              <view class="ellips right_tit">{{item.title}}</view>
+              <view class="right_rich">{{item.brandshow}}</view>
+              <view class="right_size">
+                <view class="size_size">
+                  <view>库存：{{item.quantity}}</view>
+                  <view style="color:#FE785D;font-size:20rpx;font-weight:bold;">￥
+                    <text style="font-size:24rpx;">{{item.price}}</text>
+                  </view>
+                </view>
+                <view class="con_con_btn">
+                  <text catchtap="jian" data-index='{{index}}' data-count='{{count[index]}}' data-price='{{item.price}}'>-</text>
+                  <text>{{count[index]}}</text>
+                  <text catchtap="add" data-index='{{index}}' data-count='{{count[index]}}' data-price='{{item.price}}'>+</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="li_remove" catchtap="removeGoods" data-pid='{{item.pid}}' data-index='{{index}}' data-price='{{item.price}}'>删除</view>
+    </view>
+  </block>
+</scroll-view>
+<view class="settlement">
+  <checkbox-group bindchange="checkboxAll">
+    <label class="checkbox">
+      <checkbox value="1" checked="{{isCheckedAll}}" />
+      <text>全选</text>
+    </label>
+  </checkbox-group>
+  <view class="settlement_btn">
+    <view>合计
+      <text style="color:#F8533D;font-weight:bold;">￥</text>
+      <text style="color:#F8533D;font-weight:bold;font-size:28rpx;">{{total}}</text>
+    </view>
+    <view bindtap="toCardetails">结算({{totaText}})</view>
+  </view>
+</view>

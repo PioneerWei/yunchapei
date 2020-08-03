@@ -1,0 +1,54 @@
+/* pages/integral/integral.wxss */
+
+.details {
+  padding: 40rpx 0;
+  background: #f36c52;
+  color: #fff;
+  text-align: center;
+}
+
+.details text {
+  font-size: 28rpx;
+}
+
+.details_num {
+  margin-top: 30rpx;
+  font-size: 64rpx;
+}
+
+.details_btn {
+  margin: 46rpx auto 0;
+  width: 308rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 40rpx;
+  color: #f6604f;
+  font-size: 32rpx;
+}
+
+.list {
+  margin-bottom: 20rpx;
+  width: 100%;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 10rpx;
+}
+
+.list_li {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx;
+}
+
+.list_li_text1 {
+  color: #999;
+  text-align: left;
+  font-size: 28rpx;
+}
+
+.list_li_text2 {
+  width: 85%;
+  color: #666;
+  text-align: right;
+  font-size: 28rpx;
+}

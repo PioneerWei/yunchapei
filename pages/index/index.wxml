@@ -1,0 +1,80 @@
+<!--index.wxml-->
+<view class="{{fixed?'indexFixed':''}}">
+  <view class="header">
+    <search bind:myevent='getSearch' bind:mycount='getCount' bind:mybrand='getBrand' bind:mybigcateg='getBigcateg' bind:mycateg='getCateg' bind:myvalue='getValue' is-status-oE='{{fixed}}'/>
+    <swiper class="header_banner" style="width: 100%;height: 252rpx;" indicator-dots='true' indicator-active-color='#fff'>
+      <block wx:for='{{lunbo}}' wx:key='index'>
+        <swiper-item>
+          <image src="{{item.imgurl}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="header_nav">
+      <view class="nav_li" bindtap="toModel">
+        <image src="/images/47@2x.png"></image>
+        <text>车型查询</text>
+      </view>
+      <view class="nav_li" bindtap="toType">
+        <image src="/images/40@2x.png"></image>
+        <text>产品订购</text>
+      </view>
+      <view class="nav_li" bindtap="toOrder">
+        <image src="/images/40@2x(1).png"></image>
+        <text>我的订单</text>
+      </view>
+      <view class="nav_li">
+        <image src="/images/50@2x.png"></image>
+        <text>新功能开发中</text>
+      </view>
+    </view>
+  </view>
+  <view class="billboard">
+    <view class="billboard_tit">推荐榜单</view>
+    <view class="billboard_li">
+      <block wx:for='{{bangdan}}' wx:key='index'>
+        <view class="billboard_li_box">
+          <text class="billboard_li_box_tit" style="{{index == 1?'color:#665BF8;':(index == 2?'color:#EA5679;':'')}}">{{item.show}}</text>
+          <image src="{{item.image}}" style="width:115rpx;height:115rpx;"></image>
+          <view class="billboard_li_ban">
+            <image src="/images/{{imgIndex+2*index}}@2x.png" style="width:216rpx;height:140rpx;"></image>
+            <view class="billboard_li_text">
+              <text class="billboard_li_con ellips">{{item.title}}</text>
+              <view style="text-align: center;">已售{{item.yishou}}件</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="content">
+    <scroll-view class="scroll_nav" scroll-x='true'>
+      <block wx:for='{{category}}' wx:key='index'>
+        <view class="scroll_li" bindtap="scrollnavTab" data-index='{{index}}' data-id='{{item.id}}'>
+          <text style="{{tapIndex == index?'color:#fe785d;font-weight: bold;':''}}">{{item.name}}</text>
+          <view class="nav_active_i" hidden='{{tapIndex != index}}'></view>
+        </view>
+      </block>
+    </scroll-view>
+    <view class="content_box">
+      <view wx:for='{{list}}' wx:key='index' style="position:relative;margin-top:10rpx;">
+        <view class="content_li" bindlongpress="showLiModal" bindtap="toDetails" data-index='{{index}}' data-pid='{{item.pid}}'>
+          <view style="width:100%;height:220rpx;text-align:center;">
+            <image class="content_li_img" src="{{item.image}}"></image>
+          </view>
+          <view class="content_li_tit ellips">{{item.title}}</view>
+          <text class="content_li_rich">已售{{item.yishou}}件</text>
+          <view class="content_li_pribtn">
+            <text class="content_li_price">￥<text style="font-size:28rpx;">{{item.price}}</text></text>
+            <image src="/images/dian@2x.png" style="width:24rpx;height:24rpx;" catchtap="showLiModal" data-index='{{index}}'></image>
+          </view>
+
+        </view>
+        <view class="contentli_modal" hidden="{{showModalIndex != index}}">
+          <image hidden='{{isfavs[index]}}' src="/images/53@2x(1).png" style="margin-bottom:20rpx;" catchtap="collect" data-pid='{{item.pid}}' data-index='{{index}}'></image>
+          <image hidden='{{!isfavs[index]}}' src="/images/53@2x.png" style="margin-bottom:20rpx;" catchtap="cancelCollect" data-pid='{{item.pid}}' data-index='{{index}}'></image>
+          <image src="/images/53@2x(2).png" catchtap='addCar' data-pid='{{item.pid}}'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

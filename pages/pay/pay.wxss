@@ -1,0 +1,42 @@
+/* pages/pay/pay.wxss */
+.price{
+  padding: 60rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+.price view{
+  margin-bottom: 20rpx;
+  color: #F8533D;
+  font-weight: bold;
+}
+.price_rich{
+  color: #999;
+  font-size: 28rpx;
+}
+.paytype{
+  margin-top: 20rpx;
+  background: #fff;
+}
+.paytype_li{
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #f7f7f8;
+}
+.paytype_left{
+  display: flex;
+  align-items: center;
+}
+.paytype_left image{
+  margin-right: 24rpx;
+  width: 52rpx;
+  height: 52rpx;
+}
+.paytype_left text{
+  font-size: 30rpx;
+  color: #333;
+}

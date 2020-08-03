@@ -1,0 +1,32 @@
+<!--pages/changeadd/changeadd.wxml-->
+<view class="copyadd" hidden="{{isCopy}}">
+  <text class="copy_tit">一键粘贴</text>
+  <textarea placeholder="例如: 李先生 13800138000 北京市朝阳区三里屯街道西三环北路中国外文大厦B座403室" placeholder-class="place_copy" value="" bindinput="textarea"></textarea>
+  <view style="text-align:right;">
+    <text class="copy_btn" bindtap="createAdd">确定</text>
+  </view>
+</view>
+<view class="address">
+  <view class="address_li">
+    <input value="{{name}}" placeholder="请输入姓名" placeholder-class="place" bindinput="name"></input>
+  </view>
+  <view class="address_li">
+    <input value="{{telephone}}" placeholder="请输入电话" placeholder-class="place" bindinput="tel"></input>
+  </view>
+  <view class="address_li">
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class="place" hidden="{{isText}}">请选择地区</view>
+      <view class="picker" hidden="{{!isText}}">
+        {{region[0]}}-{{region[1]}}-{{region[2]}}
+      </view>
+    </picker>
+  </view>
+  <view class="address_li">
+    <input value="{{address}}" placeholder="请输入详细地址" placeholder-class="place" bindinput="address"></input>
+  </view>
+</view>
+<view class="default">
+  <text>设为默认地址</text>
+  <switch checked='{{isChecked}}' bindchange="switChange" />
+</view>
+<view class="bigbtn" bindtap="saveAddress">保存</view>

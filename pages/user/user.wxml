@@ -1,0 +1,96 @@
+<!--pages/user/user.wxml-->
+<view class="user">
+  <image src="/images/userbann@2x.png" style="width:100%;height:100%;"></image>
+  <!-- 登录状态 -->
+  <view class="user_user" bindtap="toPersonal" hidden="{{isLogin}}">
+    <view class="user_left">
+      <image src="{{avatar}}" style="width:136rpx;height:136rpx;border-radius:50%;"></image>
+      <view class="user_name">
+        <view>{{nickname}}</view>
+        <text>{{telephone}}</text>
+      </view>
+    </view>
+    <image src="/images/arrow1@2x.png" style="width:16rpx;height:26rpx;"></image>
+  </view>
+  <!-- 未登录状态 -->
+  <view class="user_user" hidden="{{!isLogin}}">
+    <view class="user_left">
+      <image src="/images/avar66@2x.png" style="width:136rpx;height:136rpx;"></image>
+      <view class="user_name">
+        <button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" class='login_btn' >点击登录</button>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="data">
+  <view class="data_li" bindtap="toIntegral">
+    <view>{{jifen}}</view>
+    <text>积分</text>
+  </view>
+  <view class="data_li" bindtap="toOrder">
+    <view>{{ordercount}}</view>
+    <text>订单</text>
+  </view>
+  <view class="data_li" bindtap="toCollect">
+    <view>{{favorite}}</view>
+    <text>收藏</text>
+  </view>
+  <view class="data_li" bindtap="toAccount">
+    <view>{{account}}</view>
+    <text>账户明细</text>
+  </view>
+</view>
+<view class="list">
+  <view class="list_li" bindtap="toReturnorder">
+    <view>
+      <image src="/images/809@2x.png"></image>
+      <text>退货订单</text>
+    </view>
+    <image src="/images/arrow.png" style="width:10rpx;height:18rpx;"></image>
+  </view>
+  <view class="list_li" bindtap="toRecharge">
+    <view>
+      <image src="/images/810@2x.png"></image>
+      <text>账户充值</text>
+    </view>
+    <image src="/images/arrow.png" style="width:10rpx;height:18rpx;"></image>
+  </view>
+  <view class="list_li" bindtap="toRepayment">
+    <view>
+      <image src="/images/805@2x.png"></image>
+      <text>信用还款</text>
+    </view>
+    <image src="/images/arrow.png" style="width:10rpx;height:18rpx;"></image>
+  </view>
+  <view class="list_li">
+    <view>
+      <image src="/images/807@2x.png"></image>
+      <text>汇款审核</text>
+    </view>
+    <image src="/images/arrow.png" style="width:10rpx;height:18rpx;"></image>
+  </view>
+  <view class="list_li">
+    <view>
+      <image src="/images/806@2x.png"></image>
+      <text>提现审核</text>
+    </view>
+    <image src="/images/arrow.png" style="width:10rpx;height:18rpx;"></image>
+  </view>
+</view>
+<view class="list_li" style="margin:24rpx 0;background:#fff;" bindtap="toAddress">
+  <view>
+    <image src="/images/808@2x.png"></image>
+    <text>我的地址</text>
+  </view>
+  <image src="/images/arrow.png" style="width:10rpx;height:18rpx;"></image>
+</view>
+<view class="out" bindtap="outLogin" hidden="{{isLogin}}">退出登入</view>
+<view class="bindModal" catchtouchmove hidden="{{isBindModal}}">
+  <view class="bindModal_con">
+    <text class="bindModal_con_tit">您还未绑定，是否绑定账号？</text>
+    <view class="bindModal_con_btn">
+      <view bindtap="toRegistered">注册账号</view>
+      <view bindtap="toBind">绑定账号</view>
+    </view>
+  </view>
+</view>

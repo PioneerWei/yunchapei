@@ -1,0 +1,46 @@
+<!--pages/returnorder/returnorder.wxml-->
+<view class='header'>
+  <scroll-view scroll-x='true'>
+    <block wx:for='{{orderStatus}}' wx:key='index'>
+      <view class="header_nav" bindtap="orderTab" data-index='{{index}}' data-status='{{item.key}}'>
+        <text class="{{orderActive == index?'active':''}}">{{item.val}}</text>
+        <view class="nav_i" hidden="{{orderActive != index}}"></view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class="search">
+    <input placeholder="请输入单号" class="screening_inp" placeholder-class="place_text" bindinput="orderValue" confirm-type="search" bindconfirm='search'></input>
+    <image src="/images/sousuo@2x.png" style="width:38rpx;height:38rpx;"></image>
+  </view>
+</view>
+<view class="content">
+  <block wx:for='{{list}}' wx:key='index' hidden='{{orderstatus != "0"}}'>
+    <view class="content_li" bindtap="toReturndetails" data-oid='{{item.oid}}'>
+      <view class="content_tit">
+        <text>订单号 {{item.ordercode}}</text>
+        <text>{{item.dingdanzhuangtai}}</text>
+      </view>
+      <block wx:for='{{item.orderdetail}}' wx:for-item='liItem' wx:for-index='liIndex' wx:key='liIndex'>
+        <view class="content_con">
+          <view class="content_img">
+            <image src="{{liItem.image}}"></image>
+          </view>
+          <view class="content_right">
+            <view class="content_con_tit">
+              <text>{{liItem.title}}</text>
+              <view>
+                <text>{{liItem.price}}</text>
+                <text>x{{liItem.quantity}}</text>
+              </view>
+            </view>
+            <view class="content_rich">创建时间:{{liItem.dateline}}</view>
+          </view>
+        </view>
+      </block>
+      <view class="content_price">合计
+        <text style="color:#FE785D;">{{item.ordertotal}}</text>
+      </view>
+    </view>
+  </block>
+
+</view>

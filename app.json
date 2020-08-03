@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/type/type",
+    "pages/car/car",
+    "pages/user/user",
+    "pages/model/model",
+    "pages/personal/personal",
+    "pages/integral/integral",
+    "pages/order/order",
+    "pages/collect/collect",
+    "pages/account/account",
+    "pages/recharge/recharge",
+    "pages/rechargeinteg/rechargeinteg",
+    "pages/pay/pay",
+    "pages/orderdetails/orderdetails",
+    "pages/returndetails/returndetails",
+    "pages/repayment/repayment",
+    "pages/address/address",
+    "pages/changeadd/changeadd",
+    "pages/returnorder/returnorder",
+    "pages/details/details",
+    "pages/bind/bind",
+    "pages/selectadd/selectadd",
+    "pages/registered/registered"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#FE785D",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/home2@2x.png",
+      "selectedIconPath": "images/homesele@2x.png"
+    },
+    {
+      "pagePath": "pages/type/type",
+      "text": "分类",
+      "iconPath": "images/18405@2x.png",
+      "selectedIconPath": "images/typesele5@2x.png"
+    },
+    {
+      "pagePath": "pages/model/model",
+      "text": "车型",
+      "iconPath": "images/1@2x(1).png",
+      "selectedIconPath": "images/modelsele3@2x.png"
+    },
+    {
+      "pagePath": "pages/car/car",
+      "text": "购物车",
+      "iconPath": "images/sousuo@2x(1).png",
+      "selectedIconPath": "images/carsele2x.png"
+    },
+    {
+      "pagePath": "pages/user/user",
+      "text": "我的",
+      "iconPath": "images/4@2x.png",
+      "selectedIconPath": "images/usersele4@2x.png"
+    }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

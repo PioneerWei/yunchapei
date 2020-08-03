@@ -1,0 +1,110 @@
+/**app.wxss**/
+
+page {
+  height: 100%;
+  background: #f3f3f5;
+}
+.indexFixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.ellips {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.nomore {
+  width: 100%;
+  font-size: 26rpx;
+  color: #999;
+  font-weight: bold;
+  text-align: center;
+  line-height: 66rpx;
+}
+.recharge_inp {
+  box-sizing: border-box;
+  padding-left: 20rpx;
+  width: 100%;
+  height: 88rpx;
+  border: 2rpx solid rgba(224, 224, 224, 1);
+  border-radius: 6rpx;
+}
+.bigbtn {
+  position: fixed;
+  left: 40rpx;
+  bottom: 16rpx;
+  width: 670rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  background: rgba(254, 120, 93, 1);
+  box-shadow: 0rpx 5rpx 23rpx 0rpx rgba(245, 93, 77, 0.1);
+  border-radius: 40rpx;
+  text-align: center;
+  color: #fff;
+}
+.nofixedbtn {
+  margin: 20rpx auto;
+  width: 670rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  background: rgba(254, 120, 93, 1);
+  box-shadow: 0rpx 5rpx 23rpx 0rpx rgba(245, 93, 77, 0.1);
+  border-radius: 40rpx;
+  text-align: center;
+  color: #fff;
+}
+
+/*  重写 checkbox 样式  */
+
+/* 未选中的 背景样式 */
+
+checkbox .wx-checkbox-input {
+  border-radius: 50%; /* 圆角 */
+  width: 40rpx; /* 背景的宽 */
+  height: 40rpx; /* 背景的高 */
+  border:2rpx solid rgba(224,224,224,1);
+  /* background: #f1f1f1; */
+}
+
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  width: 40rpx; /* 背景的宽 */
+  height: 40rpx; /* 背景的高 */
+  border: none;
+  background: #FE785D;
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%; /* 圆角 */
+  width: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 44rpx;
+  text-align: center;
+  font-size: 30rpx; /* 对勾大小 30rpx */
+  color: #fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+button::after {
+  border: none;
+}
+
+button {
+  background: none;
+  border-radius:0;
+}

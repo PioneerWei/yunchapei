@@ -1,0 +1,88 @@
+<!--pages/returndetails/returndetails.wxml-->
+<!-- 根据状态控制显示隐藏 -->
+<view class="input">
+  <view class="address">
+    <text>退货地址：</text>
+    <view>{{tuihuoorder[4].val}}</view>
+  </view>
+  <view class="input_li">
+    <text>快递公司</text>
+    <input placeholder="请输入快递公司" placeholder-class="place" bindinput="kuaidi" disabled="{{tuihuo_status == 2 || tuihuo_status == 3}}" value='{{tuihuo_kuaidi}}'></input>
+  </view>
+  <view class="input_li">
+    <text>快递单号</text>
+    <input placeholder="请输入快递单号" placeholder-class="place" bindinput="kuaidi_code" disabled="{{tuihuo_status == 2 || tuihuo_status == 3}}" value='{{tuihuo_kuaidi_code}}'></input>
+  </view>
+</view>
+<view class="return_status">
+  <text>物流单号 2019621180901</text>
+  <text>用户发退货单</text>
+</view>
+<!--  -->
+<view class="content">
+  <block wx:for='{{detail}}' wx:key='index'>
+    <view class="content_li_con" bindtap="toOrderdetails">
+      <block wx:for='{{item.prolist}}' wx:for-item='listItem' wx:for-index='listIndex' wx:key='listIndex'>
+        <view class="li_con_img">
+          <image src="{{listItem.image}}"></image>
+        </view>
+        <view class="li_con_con">
+          <view class="con_con_tit ellips">{{listItem.products_title}}</view>
+          <text class="con_con_rich">编号:RJO-8054</text>
+          <view class="con_con_size">
+            <text style="font-size: 24rpx;color: #999;">数量：{{listItem.quantity}} 箱规：{{listItem.meixiangshuliang}}</text>
+            <view style="font-size:20rpx;color: #FE785D;font-weight: bold;margin-top:-4rpx;">￥
+              <text style="font-size:24rpx;">{{listItem.price}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+  <textarea class="textarea" placeholder="请在此添加买家留言" placeholder-style="font-size:26rpx;color:#ccc;" bindinput="remark" disabled="{{order_status == '2' || order_status == '3'}}" value='{{remark}}'></textarea>
+  <view class="pricelist">
+    <view class="con_price">
+      <text>商品金额</text>
+      <text>{{product_jine}}</text>
+    </view>
+    <view class="con_price">
+      <text>运费</text>
+      <text>{{accyunfei}}</text>
+    </view>
+    <view class="con_price">
+      <text>合计</text>
+      <text>{{heji}}</text>
+    </view>
+  </view>
+  <view class="price_shif">
+    <text>实付</text>
+    <text style="color:#F8533D;">{{shifu}}</text>
+  </view>
+</view>
+<view class="footer">
+  <view class="allbtn" bindtap="sureReturn">确定</view>
+</view>
+<view class="steps">
+  <i-steps>
+    <i-step status="{{tuihuo_status >= 0?'process':''}}">
+      <view slot="title">
+        申请退货退款
+      </view>
+    </i-step>
+    <i-step status="{{tuihuo_status >= 1?'process':''}}">
+      <view slot="title">
+        管理员审核
+      </view>
+    </i-step>
+    <i-step status="{{tuihuo_status >= 2?'process':''}}">
+      <view slot="title">
+        退货发货
+      </view>
+    </i-step>
+    <i-step status="{{tuihuo_status >= 3?'process':''}}">
+      <view slot="title">
+        退货入库退款
+      </view>
+    </i-step>
+  </i-steps>
+</view>

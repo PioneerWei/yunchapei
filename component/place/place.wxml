@@ -1,0 +1,21 @@
+<!--component/place/place.wxml-->
+<view class="screening">
+  <view class="screening_left" bindtap="isLeft">
+    <text>{{leftText}}</text>
+    <image src="/images/15364@2x.png" style="width:30rpx;height:30rpx;margin-left:20rpx;"></image>
+  </view>
+  <scroll-view class="screening_right" scroll-x='true'>
+    <block wx:for='{{placeRight}}' wx:key='index' wx:if="{{leftId == item.pid}}">
+      <view catchtap="getOeList" data-code='{{item.code}}' data-index='{{index}}' style="{{rightIndex != index?'':'color:#fe785d;border:2rpx solid #fe785d;'}}">{{item.name}}</view>
+    </block>
+  </scroll-view>
+  <!-- 左菜单栏 -->
+  <view class="positionleft" hidden="{{isLeft}}">
+    <block wx:for='{{placeLeft}}' wx:key='index'>
+      <view class="positionleft_li" catchtap="leftTab" data-id='{{item.cateid}}' data-index='{{index}}' data-text='{{item.name}}'>
+        <text class="positionleft_li_text" style="{{leftIndex != index?'':'font-weight:bold;'}}">{{item.name}}</text>
+        <image src="/images/15364@2x.png"></image>
+      </view>
+    </block>
+  </view>
+</view>

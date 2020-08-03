@@ -1,0 +1,15 @@
+<!--pages/selectadd/selectadd.wxml-->
+<view class="box">
+  <block wx:for='{{book}}' wx:key='index'>
+    <view class="address_li" bindtap="back" data-province='{{item.province}}' data-city='{{item.city}}' data-area='{{item.area}}' data-address='{{item.address}}' data-bid='{{item.bid}}' data-tel='{{item.telephone}}' data-name='{{item.name}}'>
+      <view class="address_li_name">
+        <view class="li_name_name">
+          <view>{{item.name}}</view>
+          <view hidden="{{item.is_default == '0'}}">默认</view>
+        </view>
+        <text class="li_name_tel">{{item.telephone}}</text>
+      </view>
+      <text class="address_li_details">{{item.name}} {{item.telephone}} {{item.province}}{{item.city}}{{item.area}}{{item.address}}</text>
+    </view>
+  </block>
+</view>

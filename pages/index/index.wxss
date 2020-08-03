@@ -1,0 +1,178 @@
+/**index.wxss**/
+
+page {
+  background: #fff;
+}
+
+.header_banner swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+.header_nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx;
+}
+
+.nav_li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+}
+
+.nav_li image {
+  width: 94rpx;
+  height: 94rpx;
+}
+
+.nav_li text {
+  display: block;
+  margin-top: 18rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.billboard {
+  padding: 30rpx;
+  border-top: 10rpx solid #f3f3f5;
+  border-bottom: 10rpx solid #f3f3f5;
+}
+
+.billboard_tit {
+  margin-bottom: 30rpx;
+  font-weight: bold;
+}
+
+.billboard_li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.billboard_li_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 218rpx;
+  border: 2rpx solid rgba(240, 240, 240, 1);
+  border-radius: 6rpx;
+}
+
+.billboard_li_ban {
+  position: relative;
+  width: 216rpx;
+  height: 140rpx;
+}
+
+.billboard_li_text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  padding-top: 40rpx;
+  width: 100%;
+  height: 140rpx;
+  color: #fff;
+  font-size: 22rpx;
+}
+
+.billboard_li_con {
+  padding: 0 20rpx;
+  text-align: center;
+  height: 60rpx;
+}
+
+.billboard_li_box_tit {
+  margin: 20rpx 0;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #ee8755;
+}
+
+.scroll_nav {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.scroll_li text {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.scroll_li {
+  display: inline-block;
+  padding: 30rpx 30rpx 0;
+}
+
+.nav_active_i {
+  margin: 12rpx auto;
+  width: 30rpx;
+  height: 6rpx;
+  background: rgba(254, 120, 93, 1);
+  border-radius: 3rpx;
+}
+
+.content_li {
+  box-sizing: border-box;
+  padding: 14rpx;
+  width: 218rpx;
+  border: 2rpx solid rgba(240, 240, 240, 1);
+  border-radius: 6rpx;
+}
+
+.content_li_img {
+    max-width: 100%;  
+    max-height: 100%;
+}
+
+.content_li_tit {
+  height: 66rpx;
+  line-height: 32rpx;
+  font-size: 22rpx;
+  color: #333;
+}
+
+.content_li_rich {
+  font-size: 20rpx;
+  color: #999;
+}
+
+.content_li_pribtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content_li_price {
+  font-size: 20rpx;
+  color: #fe785d;
+  font-weight: bold;
+}
+
+.content_box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10rpx 30rpx;
+}
+
+.contentli_modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 6rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentli_modal image {
+  width: 80rpx;
+  height: 80rpx;
+}

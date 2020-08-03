@@ -1,0 +1,32 @@
+<!--pages/integral/integral.wxml-->
+<view class="details">
+  <text>当前积分</text>
+  <view class="details_num">{{curintegral}}</view>
+  <view class="details_btn" bindtap="toRechargeInteg">购买积分</view>
+</view>
+<view style="padding: 20rpx;">
+  <block wx:for='{{list}}' wx:key='index'>
+    <view class="list">
+      <view class="list_li">
+        <text class="list_li_text1">操作</text>
+        <view class="list_li_text2">{{item.caozuo}}</view>
+      </view>
+      <view class="list_li">
+        <text class="list_li_text1">积分</text>
+        <view class="list_li_text2">{{item.jifen}}</view>
+      </view>
+      <view class="list_li">
+        <text class="list_li_text1">描述</text>
+        <view class="list_li_text2">
+          {{item.miaoshu}}
+        </view>
+      </view>
+      <view class="list_li">
+        <text class="list_li_text1">时间</text>
+        <view class="list_li_text2">{{item.shijian}}</view>
+      </view>
+    </view>
+  </block>
+
+</view>
+<view class="nomore">暂无更多内容</view>

@@ -1,0 +1,154 @@
+/* pages/account/account.wxss */
+page{
+  padding-bottom: 200rpx;
+}
+.amount {
+  width: 100%;
+  background: #f36c52;
+  color: #fff;
+  text-align: center;
+}
+
+.amount_tit {
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+.amount_num {
+  font-size: 64rpx;
+  font-weight: bold;
+  margin: 20rpx 0;
+}
+
+.amount_list {
+  display: flex;
+  padding: 20rpx 0;
+  background: #fe785d;
+}
+
+.amount_li {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount_li:nth-child(2) {
+  border-left: 2rpx solid #f98a7d;
+  border-right: 2rpx solid #f98a7d;
+}
+
+.amount_li text {
+  display: block;
+}
+
+.amount_li text:first-child {
+  font-size: 32rpx;
+}
+
+.amount_li text:last-child {
+  font-size: 24rpx;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+
+.date_li {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36rpx 0;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.date_li image {
+  margin-left: 6rpx;
+}
+
+.select_img {
+  width: 16rpx;
+  height: 16rpx;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.select_img_rotate {
+  transform: rotate(180deg);
+}
+
+.result {
+  padding: 20rpx;
+}
+
+.result_li {
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  padding: 0 30rpx;
+  width: 100%;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 10rpx;
+}
+
+.result_li_li {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+}
+
+.result_li_li text {
+  color: #999;
+}
+
+.result_li_li view {
+  width: 85%;
+  text-align: right;
+  color: #666;
+}
+.noresult{
+  padding-top: 136rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #999;
+}
+.noresult text{
+  display: block;
+}
+.noresult image{
+  margin-bottom: 56rpx;
+  width: 158rpx;
+  height: 158rpx;
+}
+.fixedbtn {
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  padding: 20rpx 40rpx;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: #fff;
+}
+
+.fixedbtn button {
+  width: 318rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border: 2rpx solid rgba(224, 224, 224, 1);
+  border-radius: 40rpx;
+  font-size: 32rpx;
+}
+.fixedbtn button:first-child{
+  color: #333;
+}
+.fixedbtn button:last-child{
+  background: #FE785D;
+  color: #fff;
+}

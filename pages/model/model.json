@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "search": "../../component/search/search",
+    "place": "../../component/place/place"
+  },
+  "navigationBarTitleText": "车型查询"
+}

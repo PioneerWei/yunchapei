@@ -1,0 +1,72 @@
+<!--pages/order/order.wxml-->
+<view class='header'>
+  <scroll-view scroll-x='true'>
+    <block wx:for='{{orderStatus}}' wx:key='index'>
+      <view class="header_nav" bindtap="orderTab" data-key='{{item.key}}' data-index='{{index}}'>
+        <text class="{{orderActive == index?'active':''}}">{{item.name}}</text>
+        <view class="nav_i" hidden="{{orderActive != index}}"></view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class="screening">
+    <view class="screening_date">
+      <view class="screening_date_date">
+        <picker mode="date" value="{{startDate}}" start="2010-01-01" end="{{nowDate}}" bindchange="bindStartChange" bindtap="bindStartTap" bindcancel="bindStartCancel">
+          <view class="picker">
+            {{startDate}}
+          </view>
+        </picker>
+        <image class='select_img {{selectStart&&"select_img_rotate"}}' src='/images/2@2x.png' background-size="contain"></image>
+      </view>
+      <view class="screening_date_date">
+        <picker mode="date" value="{{endDate}}" start="2010-01-01" end="{{nowDate}}" bindchange="bindEndChange" bindtap="bindEndTap" bindcancel="bindEndCancel">
+          <view class="picker">
+            {{endDate}}
+          </view>
+        </picker>
+        <image class='select_img {{selectEnd&&"select_img_rotate"}}' src='/images/2@2x.png' background-size="contain"></image>
+      </view>
+    </view>
+    <view class="screening_search">
+      <input placeholder="请输入单号" class="screening_inp" placeholder-class="place_text" confirm-type='search' bindconfirm='search' bindinput="orderValue"></input>
+      <image src="/images/sousuo@2x.png" style="width:38rpx;height:38rpx;"></image>
+    </view>
+  </view>
+</view>
+<view class="orderlist">
+  <block wx:for='{{list}}' wx:key='index'>
+    <view class="orderlist_li" bindtap="toOrderDetails" data-oid='{{item.oid}}'>
+      <view class="orderlist_tit">
+        <text>订单号 {{item.ordercode}}</text>
+        <text>{{item.dingdanzhuangtai}}</text>
+      </view>
+      <block wx:for='{{item.orderdetail}}' wx:for-item='liItem' wx:for-index='liIndex' wx:key='liIndex'>
+        <view style="border-top: 2rpx solid #F3F3F5;border-bottom: 2rpx solid #F3F3F5;">
+          <view class="orderlist_con">
+            <view class="orderlist_con_left">
+              <image src="{{liItem.image}}"></image>
+            </view>
+            <view class="orderlist_con_right">
+              <view class="con_right_tit">
+                <text class="con_right_tit_text">{{liItem.title}}</text>
+                <view class="con_right_tit_num">
+                  <text>{{liItem.price}}</text>
+                  <text>x{{liItem.quantity}}</text>
+                </view>
+              </view>
+              <text class="con_right_time">创建时间:{{liItem.dateline}}</text>
+
+            </view>
+          </view>
+          <view class="orderlist_con_price">合计
+            <text style="color:#FE785D;">{{item.ordertotal}}</text> (含运费{{item.ordershipping}})</view>
+        </view>
+      </block>
+      <view class="orderlist_btn">
+        <view wx:if="{{item.orderstatus == 0}}">删除</view>
+        <view>查看</view>
+      </view>
+    </view>
+  </block>
+
+</view>

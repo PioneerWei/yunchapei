@@ -1,0 +1,19 @@
+<!--pages/recharge/recharge.wxml-->
+<view class="repayment">
+  <view class="repayment_inp">
+    <input type='digit' placeholder="请输入充值金额" placeholder-style="font-size:30rpx;color:#ccc;" bindinput="account"></input>
+  </view>
+  <view class="repayment_li">
+    <text>现金金额</text>
+    <text>{{xianjin}}</text>
+  </view>
+  <view class="repayment_li">
+    <text>信用额度</text>
+    <text>{{xinyong_edu}}</text>
+  </view>
+  <view class="repayment_li">
+    <text>已用额度</text>
+    <text>{{xinyong}}</text>
+  </view>
+</view>
+<view class="nofixedbtn" bindtap="toPay">立即充值</view>
